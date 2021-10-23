@@ -14,7 +14,7 @@ import net.minecraft.util.registry.Registry;
 
 public class AWBlocks
 {
-    public static final Material FIREDAMP_MATERIAL = (new Material.Builder(MapColor.CLEAR)).allowsMovement().notSolid().replaceable().liquid() .build();
+    public static final Material FIREDAMP_MATERIAL = (new Material.Builder(MapColor.CLEAR)).allowsMovement().notSolid().replaceable().liquid().build();
     public static final FiredampBlock FIREDAMP = new FiredampBlock(FabricBlockSettings.of(FIREDAMP_MATERIAL).strength(100000f));
     public static void init()
     {

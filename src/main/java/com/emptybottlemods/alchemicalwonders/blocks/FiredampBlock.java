@@ -2,13 +2,19 @@ package com.emptybottlemods.alchemicalwonders.blocks;
 
 import com.emptybottlemods.alchemicalwonders.registry.AWBlocks;
 import net.minecraft.block.*;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.MinecraftClientGame;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Property;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+
+import java.util.Random;
 
 public class FiredampBlock extends AirBlock
 {
@@ -35,109 +41,32 @@ public class FiredampBlock extends AirBlock
     {
         if (!world.getBlockState(pos).get(IGNITED))
         {
-            BlockState downstate = world.getBlockState(pos.down());
-            BlockState eaststate = world.getBlockState(pos.east());
-            BlockState weststate = world.getBlockState(pos.west());
-            BlockState northstate = world.getBlockState(pos.north());
-            BlockState southstate = world.getBlockState(pos.south());
-            BlockState upstate = world.getBlockState(pos.up());
-
-            if (northstate.getBlock() instanceof TorchBlock)
+            Direction direction;
+            for (Direction i : DIRECTIONS)
             {
-                world.setBlockState(pos, state.with(IGNITED, true));
-                this.neighborUpdate(state, world, pos, block, fromPos, notify);
-            } else
-            {
-                if (eaststate.getBlock() instanceof TorchBlock)
+                BlockState blockState = world.getBlockState(pos.offset(i));
+                if (blockState.getBlock() instanceof TorchBlock)
                 {
                     world.setBlockState(pos, state.with(IGNITED, true));
                     this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                } else
-                {
-                    if (weststate.getBlock() instanceof TorchBlock)
-                    {
-                        world.setBlockState(pos, state.with(IGNITED, true));
-                        this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                    } else
-                    {
-                        if (downstate.getBlock() instanceof TorchBlock)
-                        {
-                            world.setBlockState(pos, state.with(IGNITED, true));
-                            this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                        } else
-                        {
-                            if (southstate.getBlock() instanceof TorchBlock)
-                            {
-                                world.setBlockState(pos, state.with(IGNITED, true));
-                                this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                            } else
-                            {
-                                if (upstate.getBlock() instanceof TorchBlock)
-                                {
-                                    world.setBlockState(pos, state.with(IGNITED, true));
-                                    this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                                }
-                            }
-                        }
-                    }
                 }
-            }
-
-            //Ignited Firedamp
-
-            if (northstate.contains(IGNITED))
-            {
-                if (northstate.get(IGNITED)) {
-                    world.setBlockState(pos, state.with(IGNITED, true));
-                    this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                }
-            } else
-            {
-                if (eaststate.contains(IGNITED))
+                if (blockState.contains(IGNITED))
                 {
-                    if (eaststate.get(IGNITED)) {
+                    if (blockState.get(IGNITED)) {
                         world.setBlockState(pos, state.with(IGNITED, true));
                         this.neighborUpdate(state, world, pos, block, fromPos, notify);
                     }
-                } else
-                {
-                    if (weststate.contains(IGNITED))
-                    {
-                        if (weststate.get(IGNITED)) {
-                            world.setBlockState(pos, state.with(IGNITED, true));
-                            this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                        }
-                    } else
-                    {
-                        if (downstate.contains(IGNITED))
-                        {
-                            if (downstate.get(IGNITED)) {
-                                world.setBlockState(pos, state.with(IGNITED, true));
-                                this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                            }
-                        } else
-                        {
-                            if (southstate.contains(IGNITED))
-                            {
-                                if (southstate.get(IGNITED)) {
-                                    world.setBlockState(pos, state.with(IGNITED, true));
-                                    this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                                }
-                            } else
-                            {
-                                if (upstate.contains(IGNITED)) {
-                                    if (upstate.get(IGNITED)) {
-                                        world.setBlockState(pos, state.with(IGNITED, true));
-                                        this.neighborUpdate(state, world, pos, block, fromPos, notify);
-                                    }
-                                }
-                            }
-                        }
-                    }
                 }
             }
+        } else {
 
+            world.removeBlock(pos,false);
         }
+    }
+    @Override
+    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random)
+    {
+
     }
 
 }
