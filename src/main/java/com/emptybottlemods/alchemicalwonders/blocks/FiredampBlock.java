@@ -63,10 +63,6 @@ public class FiredampBlock extends AirBlock
             world.removeBlock(pos,false);
         }
     }
-    @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random)
-    {
 
-    }
 
 }
