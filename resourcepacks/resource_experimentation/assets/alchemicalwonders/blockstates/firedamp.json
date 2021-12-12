@@ -1,0 +1,7 @@
+    {
+      "variants": {
+        "ignited=false": { "model": "alchemicalwonders:block/firedamp" },
+	"ignited=true" : { "model": "alchemicalwonders:block/lit_firedamp" }
+      }
+    }
+
