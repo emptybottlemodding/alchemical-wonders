@@ -1,0 +1,85 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alchemicalwonders_alt:block/firedamp"
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 90
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 180
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 270
+      },
+      
+      
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "z": 90
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 90,
+        "z": 90
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 180,
+        "z": 90
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 270,
+        "z": 90
+      },
+
+
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "z": 180
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 90,
+        "z": 180
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 180,
+        "z": 180
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 270,
+        "z": 180
+      },
+
+
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "z": 270
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 90,
+        "z": 270
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 180,
+        "z": 270
+      },
+      {
+        "model": "alchemicalwonders_alt:block/firedamp",
+        "x": 270,
+        "z": 270
+      }
+    ]
+  }
+}
+

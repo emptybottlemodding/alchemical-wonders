@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "alchemicalwonders_alt:block/firedamp",
+		"particle": "alchemicalwonders_alt:block/firedamp"
+	}
+}

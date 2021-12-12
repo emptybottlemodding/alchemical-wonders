@@ -12,6 +12,19 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+
+    maven { url = 'https://maven.dblsaiko.net' }
+
+    maven {
+        url "https://oskarstrom.net/maven"
+        content { includeGroup "net.oskarstrom" }
+    }
+
+    // JITPACK MUST BE LAST
+    maven {
+        name = "JitPack"
+        url 'https://jitpack.io'
+    }
 }
 
 dependencies {
@@ -23,8 +36,12 @@ dependencies {
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-    // You may need to force-disable transitiveness on them.
+    // speed up launching in dev
+    modRuntimeOnly("com.github.astei:lazydfu:${project.lazy_dfu_version}") { exclude group: "net.fabricmc.fabric-api" }
+//    modRuntimeOnly("net.oskarstrom:DashLoader:${project.dashloader_version}") { exclude group: "net.fabricmc.fabric-api" }
+
+    // remember window size+pos in dev
+    modRuntimeOnly("net.dblsaiko:winwonders:${project.winwonders_version}") { exclude group: "net.fabricmc.fabric-api" }
 }
 
 processResources {

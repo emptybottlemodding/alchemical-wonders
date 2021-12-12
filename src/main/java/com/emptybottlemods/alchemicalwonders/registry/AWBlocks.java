@@ -16,9 +16,13 @@ public class AWBlocks
 {
     public static final Material FIREDAMP_MATERIAL = (new Material.Builder(MapColor.CLEAR)).allowsMovement().notSolid().replaceable().liquid().build();
     public static final FiredampBlock FIREDAMP = new FiredampBlock(FabricBlockSettings.of(FIREDAMP_MATERIAL).strength(100000f));
+    // duplicate of firedamp for resource comparisons
+    public static final FiredampBlock FIREDAMP_ALT = new FiredampBlock(FabricBlockSettings.copy(FIREDAMP));
     public static void init()
     {
         Registry.register(Registry.BLOCK, new Identifier(AlchemicalWonders.MODID, "firedamp"), FIREDAMP);
         Registry.register(Registry.ITEM, new Identifier(AlchemicalWonders.MODID, "firedamp"), new BlockItem(FIREDAMP, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(AlchemicalWonders.MODID + "_alt", "firedamp"), FIREDAMP_ALT);
+        Registry.register(Registry.ITEM, new Identifier(AlchemicalWonders.MODID + "_alt", "firedamp"), new BlockItem(FIREDAMP_ALT, new FabricItemSettings().group(ItemGroup.MISC)));
     }
 }

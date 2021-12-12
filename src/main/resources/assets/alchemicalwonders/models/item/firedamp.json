@@ -1,0 +1,6 @@
+{
+  "parent": "alchemicalwonders:block/firedamp",
+  "textures": {
+    "0": "alchemicalwonders:item/firedamp"
+  }
+}

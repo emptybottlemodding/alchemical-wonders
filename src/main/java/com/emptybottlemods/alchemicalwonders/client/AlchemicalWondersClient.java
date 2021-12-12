@@ -13,5 +13,6 @@ public class AlchemicalWondersClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(AWBlocks.FIREDAMP, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(AWBlocks.FIREDAMP_ALT, RenderLayer.getTranslucent());
     }
 }
