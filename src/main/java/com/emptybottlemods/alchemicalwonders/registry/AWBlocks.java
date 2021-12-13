@@ -10,6 +10,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import static com.emptybottlemods.alchemicalwonders.AlchemicalWonders.MODID;
 import static com.emptybottlemods.alchemicalwonders.AlchemicalWonders.MODID_ALT;
 import static com.emptybottlemods.alchemicalwonders.registry.AWFluids.STILL_FIREDAMP;
 
@@ -22,9 +23,13 @@ public class AWBlocks
     public static final FiredampBlock FIREDAMP_ALT = new FiredampBlock(FabricBlockSettings.copy(FIREDAMP));
     public static void init()
     {
-        Registry.register(Registry.BLOCK, new Identifier(AlchemicalWonders.MODID, "firedamp"), FIREDAMP);
-        Registry.register(Registry.ITEM, new Identifier(AlchemicalWonders.MODID, "firedamp"), new BlockItem(FIREDAMP, new FabricItemSettings().group(ItemGroup.MISC)));
+        Registry.register(Registry.BLOCK, new Identifier(MODID, "firedamp"), FIREDAMP);
+        Registry.register(Registry.ITEM, new Identifier(MODID, "firedamp"), new BlockItem(FIREDAMP, new FabricItemSettings().group(ItemGroup.MISC)));
+
         Registry.register(Registry.BLOCK, new Identifier(MODID_ALT, "firedamp"), FIREDAMP_ALT);
         Registry.register(Registry.ITEM, new Identifier(MODID_ALT, "firedamp"), new BlockItem(FIREDAMP_ALT, new FabricItemSettings().group(ItemGroup.MISC)));
+
+        Registry.register(Registry.BLOCK, new Identifier(MODID, "firedamp_fluid"), FIREDAMP_FLUID_BLOCK);
+
     }
 }

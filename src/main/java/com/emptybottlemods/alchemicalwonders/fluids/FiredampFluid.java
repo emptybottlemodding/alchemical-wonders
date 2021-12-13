@@ -2,7 +2,6 @@ package com.emptybottlemods.alchemicalwonders.fluids;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -42,10 +41,8 @@ public abstract class FiredampFluid extends FlowableFluid {
 
     @Override
     protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
-        if (state.hasBlockEntity()) {
-            final BlockEntity blockEntity = world.getBlockEntity(pos);
-            Block.dropStacks(state, world, pos, blockEntity);
-        }
+        if (state.hasBlockEntity())
+            Block.dropStacks(state, world, pos, world.getBlockEntity(pos));
     }
 
 
