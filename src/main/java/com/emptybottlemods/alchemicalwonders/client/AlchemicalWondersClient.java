@@ -36,8 +36,9 @@ public class AlchemicalWondersClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(AWBlocks.FIREDAMP, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(AWBlocks.FIREDAMP_ALT, RenderLayer.getTranslucent());
-        setupFluidRendering(STILL_FIREDAMP, FLOWING_FIREDAMP, new Identifier(MODID, "water"), 0x4CC248);
+        setupFluidRendering(STILL_FIREDAMP, FLOWING_FIREDAMP, new Identifier(MODID, "firedamp"), 0x4d894b);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), STILL_FIREDAMP, FLOWING_FIREDAMP);
+        BlockRenderLayerMap.INSTANCE.putBlock(AWBlocks.FIREDAMP_FLUID_BLOCK, RenderLayer.getTranslucent());
     }
 
     public static void setupFluidRendering(final Fluid still, final Fluid flowing, final Identifier textureFluidId, final int color) {

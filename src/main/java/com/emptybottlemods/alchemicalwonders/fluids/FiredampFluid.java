@@ -40,11 +40,16 @@ public abstract class FiredampFluid extends FlowableFluid {
     }
 
     @Override
-    protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
-        if (state.hasBlockEntity())
-            Block.dropStacks(state, world, pos, world.getBlockEntity(pos));
+    protected boolean canFlow(BlockView world, BlockPos fluidPos, BlockState fluidBlockState, Direction flowDirection, BlockPos flowTo, BlockState flowToBlockState, FluidState fluidState, Fluid fluid) {
+//        return fluidState.canBeReplacedWith(world, flowTo, fluid, flowDirection) && this.receivesFlow(flowDirection, world, fluidPos, fluidBlockState, flowTo, flowToBlockState) && this.canFill(world, flowTo, flowToBlockState, fluid);
+        return flowToBlockState.isAir();
     }
 
+    @Override
+    protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
+        // drop breakable blocks
+        Block.dropStacks(state, world, pos, world.getBlockEntity(pos));
+    }
 
     @Override
     protected int getFlowSpeed(WorldView world) {
